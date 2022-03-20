@@ -26,6 +26,8 @@ Set the `PGDB_VAULT_PASSWORD` environment variable to the password of the Vault 
 
 The [setup.sh](setup.sh) script creates a creates a database secrets engine, configures is to talk to the Postgresql database, creates a role for creating dynamic users on that database, creates a policy enabling our Python application to use that role, and creates a token role that will be used to generate a token that our Python application will use to authenticate with Vault.
 
+You'll notice that we have set very short (60s and 120s) TTL's in our demo code so that we can quickly observe the behavior. In practice, the TTL for our token and dynamic secrets may be 60m, 30m, 15m, or whatever is appropriate for the application at hand.
+
 ## Running the application
 
 The [run.sh](run.sh) script will create a token using the token role created in the setup script, and run the Python application.
