@@ -68,7 +68,10 @@ def lease_watch(lease_id):
   logging.debug("lease_watch finishing")
 
 def sigint_handler(sig, frame):
-  logging.info("CTRL-C pressed. Exiting.")
+  logging.info("CTRL-C pressed.")
+  logging.info("Revoking Vault token.")
+  client.auth.token.revoke_self()
+  logging.info("Exiting.")
   sys.exit(0)
 
 if __name__ == '__main__':
