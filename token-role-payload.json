@@ -1,0 +1,5 @@
+{
+  "role_name" : "python-hvac-demo",
+  "allowed_policies" : "default,python-hvac-demo",
+  "token_type" : "service"
+}
